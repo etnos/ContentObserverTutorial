@@ -10,6 +10,7 @@ public class MyContentObserver extends ContentObserver {
     private ContentObserverCallback contentObserverCallback;
 
     public MyContentObserver(ContentObserverCallback contentObserverCallback) {
+        // null is totally fine here
         super(null);
         this.contentObserverCallback = contentObserverCallback;
     }
@@ -21,6 +22,7 @@ public class MyContentObserver extends ContentObserver {
 
     @Override
     public void onChange(boolean selfChange, Uri uri) {
+        // this is NOT UI thread, this is a BACKGROUND thread
         Log.i(LOG_TAG, "Received onChange");
         contentObserverCallback.update();
     }

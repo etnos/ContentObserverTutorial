@@ -55,6 +55,7 @@ public class MainActivityFragment extends Fragment implements ContentObserverCal
         // register ContentObserver in onResume
         getActivity().getContentResolver().
                 registerContentObserver(
+                        // observable uri
                         MyContentProvider.uriTest,
                         true,
                         myContentObserver);
@@ -77,6 +78,8 @@ public class MainActivityFragment extends Fragment implements ContentObserverCal
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                // TODO add here any needed logic
+                // set a count number to a TextView
                 txtCount.setText(String.valueOf(++count));
             }
         });
